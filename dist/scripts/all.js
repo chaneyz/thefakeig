@@ -12638,7 +12638,48 @@ return jQuery;
 }));
 
 },{}],4:[function(require,module,exports){
+var $ = require('jquery');
+var Backbone = require('backbone');
+Backbone.$ = $;
+
+module.exports = Backbone.Router.extend({
+	routes: {
+		'': 'login',
+		'login': 'login',
+		'register': 'register',
+		'feed': 'feed'
+	},
+
+	login: function() {
+		$('.page').hide();
+		$('#login').show();
+	},
+
+	register: function() {
+		$('.page').hide();
+		$('#register').show();
+	},
+
+	feed: function() {
+		$('.page').hide();
+		$('#feed').show();
+	},
+});
+},{"backbone":1,"jquery":3}],5:[function(require,module,exports){
+
+},{}],6:[function(require,module,exports){
 var $ = jQuery = require('jquery');
 var Backbone = require('backbone');
+var _ = require('../node_modules/backbone/node_modules/underscore');
+Backbone.$ = $;
 
-},{"backbone":1,"jquery":3}]},{},[4]);
+var UserModel = require('./models/user-model.js');
+var UserCollection = require('./collections/user-collection.js');
+
+
+
+var AppRouter = require('./AppRoutes.js');
+
+},{"../node_modules/backbone/node_modules/underscore":2,"./AppRoutes.js":4,"./collections/user-collection.js":5,"./models/user-model.js":7,"backbone":1,"jquery":3}],7:[function(require,module,exports){
+arguments[4][5][0].apply(exports,arguments)
+},{"dup":5}]},{},[6]);
