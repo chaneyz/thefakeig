@@ -1,0 +1,47 @@
+.page {
+	display: none;
+}
+
+.navbar {
+	background: #4C7099;
+}
+
+.add-form-btn {
+	background: #052137;
+	margin-top: .75em;
+	margin-left: 8em;
+	border-radius: 50%;
+	border-color: #052137;
+}
+
+h3 {
+	text-align: center;
+}
+
+#form-container {
+	display: none;
+/*	z-index: 1;
+	position: absolute;*/
+	background: #fff;
+	padding-top: 5em;
+	padding-bottom: 5em;
+	border-bottom: solid .1em #ccc;
+}
+
+.btn-default {
+	border: none;
+	background: #E6E6E6;
+}
+
+.btn-success {
+	border: none;
+}
+
+#img-feed {
+	text-align: center;
+	font-size: 16px;
+}
+
+.img-feed-style {
+	margin: 0 auto;
+}
