@@ -143,29 +143,29 @@
 				<div class="row">
 		            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"></div>
 						<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h3 class="panel-title">name and date...</h3>
-								</div>
-								<div class="panel-body">
-							    	<div id="photo-feed"></div>
-								</div>
-								<div class="panel-footer">
-									comments and stuff
-								</div>
-							</div>
+							<div id="photo-feed"></div>
 						</div>	
 					<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"></div>
 				</div>
 			</div>			
 		</section>
 		<script type="text/template" id="photo-row-template">
-			<div class='photo-row' data-cid="<%= model.cid %>"> 
-				<img src="<%= model.get('photoUrl') %>">
-				<div class="photo-caption">
-					<%= model.get('caption') %>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">name and date...</h3>
 				</div>
-			</div>	
+				<div class="panel-body photo-caption">
+			    	<div class='photo-row' data-cid="<%= model.cid %>"> 
+						<img src="<%= model.get('photoUrl') %>">
+						<div class="photo-caption">
+							<%= model.get('caption') %>
+						</div>
+					</div>	
+				</div>
+				<div class="panel-footer">
+					comments and stuff
+				</div>
+			</div>
 		</script>			
 
 
