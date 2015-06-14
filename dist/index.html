@@ -163,10 +163,19 @@
 					</div>	
 				</div>
 				<div class="panel-footer">
-					comments and stuff
+					<div class="comment-list"></div>
+					<form class="comment-form" data-form-cid="<%= model.cid %>">
+						<input type="text" class="comment-input">
+						<button type="submit" class="btn btn-default">Add Comment</button>
+					</form>
 				</div>
 			</div>
-		</script>			
+		</script>
+		<script type="text/template" id="comment-row-template">
+			<div class="comment-row">
+				<%= model.get('text') %>
+			</div>
+		</script>	
 
 
 
