@@ -140,6 +140,14 @@
 		</section>    
 		<section id="photo-feed">
 		</section>
+		<script type="text/template" id="photo-row-template">
+			<div class='photo-row' data-cid="<%= model.cid %>"> 
+				<img src="<%= model.get('url') %>">
+				<div class="photo-caption">
+					<%= model.get('caption') %>
+				</div>
+			</div>	
+		</script>			
 
 
 

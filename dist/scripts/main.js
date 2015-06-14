@@ -21,12 +21,17 @@ $(document).ready(function() {
 	//need to add builders below. Should have 1 for photos and comments
 	//need one for user comments
 
-	// var photoRowBuilder = _.template($('#photo-row-template').html());
+	var photoRowBuilder = _.template($('#photo-row-template').html());
 
 
 	//need to add list collection variables below
 
 	var photoFeed = new PhotoCollection();
+
+
+	//fetch call for photos and comments--maybe tags
+
+
 
 	$('#login-form').on('submit', function(e) {
 		e.preventDefault();
@@ -53,6 +58,12 @@ $(document).ready(function() {
 
 		photoFeed.add(photoToAdd);
 		photoToAdd.save();
+	});
+
+	photoFeed.on('add', function(addedPhoto) {
+		var photoHtml = photoRowBuilder({model: addedPhoto});
+
+		$('#photo-feed').append(photoHtml);	
 	});
 
 
