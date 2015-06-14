@@ -13,7 +13,7 @@
 	background: #052137;
 	margin-top: .75em;
 	margin-left: 8em;
-	border-radius: 50%;
+/*	border-radius: 50%;*/
 	border-color: #052137;
 }
 
@@ -31,10 +31,12 @@ h3 {
 	border-bottom: solid .1em #ccc;
 }
 
-/*.btn-default {
-	border: none;
-	background: #E6E6E6;
-}*/
+.btn-default {
+	border: solid;
+	border-color: #CCCCCC;
+	border-width: .09em;
+	color: #125688;
+}
 
 .btn-success {
 	border: none;
