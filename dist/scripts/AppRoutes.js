@@ -13,21 +13,21 @@ module.exports = Backbone.Router.extend({
 
 	home: function() {
 		$('.page').hide();
-		$('#home').show();
+		$('#home').fadeIn("slow");
 	},
 
 	login: function() {
 		$('.page').hide();
-		$('#login').show();
+		$('#login').fadeIn("slow");
 	},
 
 	register: function() {
 		$('.page').hide();
-		$('#register').show();
+		$('#register').fadeIn("slow");
 	},
 
 	feed: function() {
 		$('.page').hide();
-		$('#feed').show();
+		$('#feed').fadeIn("slow");
 	}
 });
