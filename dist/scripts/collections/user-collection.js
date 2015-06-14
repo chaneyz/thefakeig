@@ -5,4 +5,4 @@ Backbone.$ = $;
 
 module.exports = Backbone.Collection.extend({
 	model: UserModel
-})
+});

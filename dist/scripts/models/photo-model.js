@@ -2,11 +2,15 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 Backbone.$ = $;
 
+var validator = require('validator');
+
 module.exports = Backbone.Model.extend({
 	defaults: {
 		_id: null,
 		photoUrl: null,
-		caption: null
+		caption: null,
+		userId: null,
+		createdAt: null
 	},
 	
 	validate: function(attr, options) {
@@ -19,8 +23,6 @@ module.exports = Backbone.Model.extend({
 		}
 		return false;
 	},
-
 	urlRoot: 'http://tiny-pizza-server.herokuapp.com/collections/austin-zc-therealig',
-	
 	idAttribute: "_id"
 });

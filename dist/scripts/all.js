@@ -13438,7 +13438,7 @@ Backbone.$ = $;
 
 module.exports = Backbone.Collection.extend({
 	model: UserModel
-})
+});
 },{"../models/user-model.js":10,"backbone":1,"jquery":3}],8:[function(require,module,exports){
 var $ = jQuery = require('jquery');
 var Backbone = require('backbone');
@@ -13525,11 +13525,15 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 Backbone.$ = $;
 
+var validator = require('validator');
+
 module.exports = Backbone.Model.extend({
 	defaults: {
 		_id: null,
 		photoUrl: null,
-		caption: null
+		caption: null,
+		userId: null,
+		createdAt: null
 	},
 	
 	validate: function(attr, options) {
@@ -13542,12 +13546,10 @@ module.exports = Backbone.Model.extend({
 		}
 		return false;
 	},
-
 	urlRoot: 'http://tiny-pizza-server.herokuapp.com/collections/austin-zc-therealig',
-	
 	idAttribute: "_id"
 });
-},{"backbone":1,"jquery":3}],10:[function(require,module,exports){
+},{"backbone":1,"jquery":3,"validator":4}],10:[function(require,module,exports){
 var $ = require('jquery');
 var Backbone = require('backbone');
 Backbone.$ = $;
@@ -13558,12 +13560,11 @@ module.exports = Backbone.Model.extend({
 	defaults: {
 		_id: null,
 		password: null,
-		username: null
+		username: null,
+		createdAt: null
 	},
-
-	// urlRoot: '',
-
-
+	urlRoot: 'http://tiny-pizza-server.herokuapp.com/collections/austin-zc-therealig',
+	idAttribute: "_id"
 });
 
 

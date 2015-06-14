@@ -8,11 +8,10 @@ module.exports = Backbone.Model.extend({
 	defaults: {
 		_id: null,
 		password: null,
-		username: null
+		username: null,
+		createdAt: null
 	},
-
-	// urlRoot: '',
-
-
+	urlRoot: 'http://tiny-pizza-server.herokuapp.com/collections/austin-zc-therealig',
+	idAttribute: "_id"
 });
 
