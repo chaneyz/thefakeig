@@ -10,11 +10,13 @@
 }
 
 .add-form-btn {
-	background: #052137;
-	margin-top: .75em;
+	background: #FFFFFF;
+	margin-top: 1em;
 	margin-left: 8em;
-/*	border-radius: 50%;*/
-	border-color: #052137;
+	border: solid;
+	border-color: #CCCCCC;
+	border-width: .09em;
+	display: inline;
 }
 
 h3 {
@@ -23,8 +25,6 @@ h3 {
 
 #form-container {
 	display: none;
-/*	z-index: 1;
-	position: absolute;*/
 	background: #fff;
 	padding-top: 5em;
 	padding-bottom: 5em;
@@ -35,7 +35,8 @@ h3 {
 	border: solid;
 	border-color: #CCCCCC;
 	border-width: .09em;
-	color: #125688;
+	/*color: #125688;*/
+	color: #397AA8;
 }
 
 .btn-success {
@@ -49,4 +50,15 @@ h3 {
 
 .img-feed-style {
 	margin: 0 auto;
+}
+
+.main-nav-logo {
+	margin-left: 41%;
+	height: 4em;
+}
+
+.main-nav-logo-feed {
+	margin-left: 33%;
+	height: 4em;
+	display: inline;
 }
