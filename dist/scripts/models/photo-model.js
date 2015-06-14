@@ -5,12 +5,12 @@ Backbone.$ = $;
 module.exports = Backbone.Model.extend({
 	defaults: {
 		_id: null,
-		url: null,
+		photoUrl: null,
 		caption: null
 	},
 	
 	validate: function(attr, options) {
-		if(attr.imageUrl.length === 0){
+		if(attr.photoUrl.length === 0){
 			return 'A photo must be present';
 		}
 

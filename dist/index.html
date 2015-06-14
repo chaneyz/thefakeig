@@ -130,7 +130,7 @@
 		                    </div>
 		                    <div class="btn-group pull-right" role="group">
 		                        <button type="button" class="btn btn-default" id="btn-add-photo-cancel">Cancel</button>
-		                        <button type="button" class="btn btn-success" id="btn-add-image"><span class="glyphicon glyphicon-picture"></span> Add Image</button>
+		                        <button type="submit" class="btn btn-success" id="btn-add-photo"><span class="glyphicon glyphicon-picture"></span> Add Image</button>
 		                    </div>
 		                </form>
 		            </div>
@@ -142,7 +142,7 @@
 		</section>
 		<script type="text/template" id="photo-row-template">
 			<div class='photo-row' data-cid="<%= model.cid %>"> 
-				<img src="<%= model.get('url') %>">
+				<img src="<%= model.get('photoUrl') %>">
 				<div class="photo-caption">
 					<%= model.get('caption') %>
 				</div>

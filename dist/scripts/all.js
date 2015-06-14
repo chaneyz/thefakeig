@@ -13473,7 +13473,11 @@ $(document).ready(function() {
 
 	//fetch call for photos and comments--maybe tags
 
-
+	photoFeed.fetch({
+		// success: function() {
+		// 	commentList.fetch();
+		// }
+	});
 
 	$('#login-form').on('submit', function(e) {
 		e.preventDefault();
@@ -13494,8 +13498,8 @@ $(document).ready(function() {
 	$('#add-photo-form').on('submit', function(e) {
 		e.preventDefault();
 		var photoToAdd = new PhotoModel({
-			url: $('#photo-url-input').val(),
-			caption: $('#photo-caption-input').val()
+			photoUrl: $('#photo-input-url').val(),
+			caption: $('#photo-input-caption').val()
 		});
 
 		photoFeed.add(photoToAdd);
@@ -13505,10 +13509,11 @@ $(document).ready(function() {
 	photoFeed.on('add', function(addedPhoto) {
 		var photoHtml = photoRowBuilder({model: addedPhoto});
 
-		$('#photo-feed').append(photoHtml);	
+		$('#photo-feed').append(photoHtml);
+
+		console.log('why this no worky?')
+
 	});
-
-
 
 
 
@@ -13523,12 +13528,12 @@ Backbone.$ = $;
 module.exports = Backbone.Model.extend({
 	defaults: {
 		_id: null,
-		url: null,
+		photoUrl: null,
 		caption: null
 	},
 	
 	validate: function(attr, options) {
-		if(attr.imageUrl.length === 0){
+		if(attr.photoUrl.length === 0){
 			return 'A photo must be present';
 		}
 
