@@ -13392,10 +13392,16 @@ Backbone.$ = $;
 
 module.exports = Backbone.Router.extend({
 	routes: {
-		'': 'login',
+		'': 'home',
+		'home': 'home',
 		'login': 'login',
 		'register': 'register',
 		'feed': 'feed'
+	},
+
+	home: function() {
+		$('.page').hide();
+		$('#home').show();
 	},
 
 	login: function() {
