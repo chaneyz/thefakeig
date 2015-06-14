@@ -21,7 +21,7 @@ $(document).ready(function() {
 	//need to add builders below. Should have 1 for photos and comments
 	//need one for user comments
 
-	var photoRowBuilder = _.template($('#photo-row-template').html());
+	// var photoRowBuilder = _.template($('#photo-row-template').html());
 
 
 	//need to add list collection variables below
@@ -39,8 +39,6 @@ $(document).ready(function() {
 	$('#add-form-btn').on('click', function() {
 		$('#add-new-photo-form').show();
 	});
-
-	console.log('#add-form-btn');
 
 	$('#btn-add-photo-cancel').on('click', function() {
 		$('#add-new-photo-form').hide();
