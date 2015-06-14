@@ -2,9 +2,9 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 Backbone.$ = $;
 
-var Photo = require('../models/photo-model.js');
+var PhotoModel = require('../models/photo-model.js');
 
 module.exports = Backbone.Collection.extend({
-	model: Photo,
+	model: PhotoModel,
 	url: 'http://tiny-pizza-server.herokuapp.com/collections/austin-zc-therealig'
 });

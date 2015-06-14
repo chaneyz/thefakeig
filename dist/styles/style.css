@@ -9,7 +9,7 @@
 	border-width: .09em;
 }
 
-.add-form-btn {
+#add-form-btn {
 	background: #FFFFFF;
 	margin-top: 1em;
 	margin-left: 8em;
@@ -61,4 +61,8 @@ h3 {
 	margin-left: 33%;
 	height: 4em;
 	display: inline;
+}
+
+#add-new-photo-form {
+	display: none;
 }

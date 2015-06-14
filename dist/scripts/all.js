@@ -13422,28 +13422,53 @@ module.exports = Backbone.Router.extend({
 },{"backbone":1,"jquery":3}],6:[function(require,module,exports){
 var $ = require('jquery');
 var Backbone = require('backbone');
+Backbone.$ = $;
+
+var PhotoModel = require('../models/photo-model.js');
+
+module.exports = Backbone.Collection.extend({
+	model: PhotoModel,
+	url: 'http://tiny-pizza-server.herokuapp.com/collections/austin-zc-therealig'
+});
+},{"../models/photo-model.js":9,"backbone":1,"jquery":3}],7:[function(require,module,exports){
+var $ = require('jquery');
+var Backbone = require('backbone');
 var UserModel = require('../models/user-model.js');
 Backbone.$ = $;
 
 module.exports = Backbone.Collection.extend({
 	model: UserModel
 })
-},{"../models/user-model.js":8,"backbone":1,"jquery":3}],7:[function(require,module,exports){
+},{"../models/user-model.js":10,"backbone":1,"jquery":3}],8:[function(require,module,exports){
 var $ = jQuery = require('jquery');
 var Backbone = require('backbone');
 var _ = require('../node_modules/backbone/node_modules/underscore');
 Backbone.$ = $
-
-var UserModel = require('./models/user-model.js');
-var UserCollection = require('./collections/user-collection.js');
-
-
 
 var AppRouter = require('./AppRoutes.js');
 
 $(document).ready(function() {
 	var app = new AppRouter();
 	Backbone.history.start();
+
+	// need to add variables for models & collections below
+	
+	var UserModel = require('./models/user-model.js');
+	var UserCollection = require('./collections/user-collection.js');
+
+	var PhotoModel = require('./models/photo-model.js');
+	var PhotoCollection = require('./collections/photo-collection.js');
+
+
+	//need to add builders below. Should have 1 for photos and comments
+	//need one for user comments
+
+	var photoRowBuilder = _.template($('#photo-row-template').html());
+
+
+	//need to add list collection variables below
+
+	var photoFeed = new PhotoCollection();
 
 	$('#login-form').on('submit', function(e) {
 		e.preventDefault();
@@ -13453,8 +13478,62 @@ $(document).ready(function() {
 		})
 	});
 
+	$('#add-form-btn').on('click', function() {
+		$('#add-new-photo-form').show();
+	});
+
+	console.log('#add-form-btn');
+
+	$('#btn-add-photo-cancel').on('click', function() {
+		$('#add-new-photo-form').hide();
+	});
+
+	$('#add-photo-form').on('submit', function(e) {
+		e.preventDefault();
+		var photoToAdd = new PhotoModel({
+			url: $('#photo-url-input').val(),
+			caption: $('#photo-caption-input').val()
+		});
+
+		photoFeed.add(photoToAdd);
+		photoToAdd.save();
+	});
+
+
+
+
+
+
+
 });
-},{"../node_modules/backbone/node_modules/underscore":2,"./AppRoutes.js":5,"./collections/user-collection.js":6,"./models/user-model.js":8,"backbone":1,"jquery":3}],8:[function(require,module,exports){
+},{"../node_modules/backbone/node_modules/underscore":2,"./AppRoutes.js":5,"./collections/photo-collection.js":6,"./collections/user-collection.js":7,"./models/photo-model.js":9,"./models/user-model.js":10,"backbone":1,"jquery":3}],9:[function(require,module,exports){
+var $ = require('jquery');
+var Backbone = require('backbone');
+Backbone.$ = $;
+
+module.exports = Backbone.Model.extend({
+	defaults: {
+		_id: null,
+		url: null,
+		caption: null
+	},
+	
+	validate: function(attr, options) {
+		if(attr.imageUrl.length === 0){
+			return 'A photo must be present';
+		}
+
+		else if(attr.caption.length === 0){
+			return 'A caption must be present';
+		}
+		return false;
+	},
+
+	urlRoot: 'http://tiny-pizza-server.herokuapp.com/collections/austin-zc-therealig',
+	
+	idAttribute: "_id"
+});
+},{"backbone":1,"jquery":3}],10:[function(require,module,exports){
 var $ = require('jquery');
 var Backbone = require('backbone');
 Backbone.$ = $;
@@ -13474,4 +13553,4 @@ module.exports = Backbone.Model.extend({
 });
 
 
-},{"backbone":1,"jquery":3,"validator":4}]},{},[7]);
+},{"backbone":1,"jquery":3,"validator":4}]},{},[8]);
