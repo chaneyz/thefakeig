@@ -23,5 +23,5 @@ module.exports = Backbone.Router.extend({
 	feed: function() {
 		$('.page').hide();
 		$('#feed').show();
-	},
+	}
 });
