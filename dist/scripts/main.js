@@ -17,14 +17,14 @@ $(document).ready(function() {
 	var PhotoModel = require('./models/photo-model.js');
 	var PhotoCollection = require('./collections/photo-collection.js');
 
-	var commentModel = require('.models/comment-model.js');
-	var commentCollection = require('./collections/comment-collection.js');
+	var CommentModel = require('./models/comment-model.js');
+	var CommentCollection = require('./collections/comment-collection.js');
 
 	//need to add builders below. Should have 1 for photos and comments
 	//need one for user comments
 
 	var photoRowBuilder = _.template($('#photo-row-template').html());
-	var commentRowBuilder = _.templage($('#comment-row-template').html());
+	var commentRowBuilder = _.template($('#comment-row-template').html());
 
 	//need to add list collection variables below
 
@@ -73,13 +73,13 @@ $(document).ready(function() {
 		$('#photo-feed').append(photoHtml);
 
 		//adding comments to the photos
-		$('[data-form-cid="'+addedImage.cid+'"]').on('submit', function(e) {
+		$('[data-form-cid="'+addedPhoto.cid+'"]').on('submit', function(e) {
 			e.preventDefault();
 			var $commentInput = $(this).find('.comment-input');
 
 			var commentToAdd = new CommentModel({
 				text: $commentInput.val(),
-				imageId: addedImage.id
+				photoId: addedPhoto.id
 			});
 
 			commentList.add(commentToAdd);
@@ -89,13 +89,13 @@ $(document).ready(function() {
 
 	commentList.on('add', function(addedComment) {
 		var commentHtml = commentRowBuilder({model: addedComment});
-		var imageId = addedComment.get('imageId');
-		var imageModel = imageList.get(imageId);
+		var photoId = addedComment.get('photoId');
+		var photoModel = photoFeed.get(photoId);
 
-		$('[data-photo-cid="'+imageModel.cid+'"] .comment-list').append(commentHtml);
+		$('[data-photo-cid="'+photoModel.cid+'"] .comment-list').append(commentHtml);
+	console.log(addedComment);
+
 	});
-
-// console.log('why this no worky?')
 
 
 
