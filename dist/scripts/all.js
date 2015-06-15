@@ -13538,6 +13538,8 @@ $(document).ready(function() {
 			commentList.add(commentToAdd);
 			commentToAdd.save();
 		})
+
+		$('.comment-input').html('');
 	});
 
 	commentList.on('add', function(addedComment) {
@@ -13546,8 +13548,6 @@ $(document).ready(function() {
 		var photoModel = photoFeed.get(photoId);
 
 		$('[data-photo-cid="'+photoModel.cid+'"] .comment-list').append(commentHtml);
-	console.log(addedComment);
-
 	});
 
 

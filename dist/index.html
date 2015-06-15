@@ -160,18 +160,16 @@
 						<div class="photo-caption">
 							<%= model.get('caption') %>
 						</div>
+						<div class="comment-list"></div>
+						<form class="comment-form" data-form-cid="<%= model.cid %>">
+							<div class="input-group">
+      							<input type="text" class="form-control comment-input" placeholder="Add comment...">
+      							<span class="input-group-btn">
+        							<button class="btn btn-default" type="submit">Save</button>
+						    	</span>
+							</div>
+						</form>	
 					</div>	
-				</div>
-				<div class="panel-footer">
-					<div class="comment-list"></div>
-					<form class="comment-form" data-form-cid="<%= model.cid %>">
-						<div class="input-group">
-      						<input type="text" class="form-control comment-input" placeholder="Add comment...">
-      						<span class="input-group-btn">
-        						<button class="btn btn-default" type="submit">Save</button>
-						    </span>
-						</div>
-					</form>
 				</div>
 			</div>
 		</script>
